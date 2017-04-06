@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     ListView,
+    Text
 } from 'react-native';
 
 import Comment from './Comment'
@@ -17,14 +18,15 @@ export default class CommentList extends Component {
         super(props);
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.state = {
-            dataSource: ds
+            //dataSource: ds
+            dataSource: ds.cloneWithRows([{text: 'row 1'}, {text: 'row 2'}]),
         }
     }
 
     componentDidMount() {
         //this.updateDataSource(this.props.comments)
         //this.updateDataSource(['awesome!', 'Fine!', 'I Hate him', 'Whatever'])
-//        this.updateDataSource([{text: 'awesome!'}])
+        //this.updateDataSource([{text: 'awesome!'}, {text: 'Fine!'}])
 //this.updateDataSource({text: 'awesome!'})
     }
 

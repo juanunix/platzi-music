@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
+    Text,
     TextInput,
     TouchableOpacity,
 } from 'react-native';
@@ -41,9 +42,15 @@ export default class ArtistDetailView extends Component {
 
     handleSend = () => {
         const { text } = this.state;
+        const { uid, photo } = firebaseAuth.currentUser
         const artistCommentsRef = this.getArtistCommentsRef();
         var newCommentRef = artistCommentsRef.push();
-        newCommentRef.set({text});
+        newCommentRef.set({
+            text,
+            userPhoto: photo,
+            uid
+        });
+        this.setState({text: ''})
     }
 
     getArtistCommentsRef = () => {
@@ -60,10 +67,12 @@ export default class ArtistDetailView extends Component {
         return (
             <View style={styles.container}>
                 <ArtistBox artist={artist} />
+                <Text style={styles.header}>Comentarios</Text>
                 <CommentList comments={comments} />
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.input}
+                        value={this.state.text}
                         placeholder="Opina sobre este artista"
                         onChangeText={this.handleChangeText} />
 
@@ -82,11 +91,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'lightgray',
         paddingTop: 55,
     },
+    header: {
+        fontSize: 20,
+        paddingHorizontal: 15,
+        marginVertical: 10,
+    },
     inputContainer: {
-        position: 'absolute',
-        bottom: 0,
-        right: 0,
-        left: 0,
         height: 50,
         backgroundColor: 'white',
         paddingHorizontal: 10,
