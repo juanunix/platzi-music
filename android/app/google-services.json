@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "632962718188",
+    "firebase_url": "https://platzimusic-57af9.firebaseio.com",
+    "project_id": "platzimusic-57af9",
+    "storage_bucket": "platzimusic-57af9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632962718188:android:287dbb7ebdd3b7bb",
+        "android_client_info": {
+          "package_name": "com.platzimusic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632962718188-uj14nf9no745am3q8j8b410e08beo0m8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAat2-l_OuieeJ4j2Pf8D5eO27V222EPmE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
