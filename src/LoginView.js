@@ -12,24 +12,14 @@ import {
     Button,
 } from 'react-native';
 
-import * as firebase from 'firebase';
+import firebase, {firebaseAuth} from './firebase'; 
+
 import { Actions } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { GoogleSignin, GoogleSigninButton } from 'react-native-google-signin';
 
-const config = {
-    apiKey: "AIzaSyBMfSjNAdDKBYLhv2D4RwSh6dlE8kX7SMo",
-    authDomain: "platzimusic-57af9.firebaseapp.com",
-    databaseURL: "https://platzimusic-57af9.firebaseio.com",
-    projectId: "platzimusic-57af9",
-    storageBucket: "platzimusic-57af9.appspot.com",
-    messagingSenderId: "632962718188"
-};
-
-firebase.initializeApp(config);
-
 const { GoogleAuthProvider } = firebase.auth;
-const firebaseAuth = firebase.auth();
+
 
 export default class HomeView extends Component {
     componentWillMount() {
