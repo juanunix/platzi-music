@@ -18,21 +18,21 @@ export default class CommentList extends Component {
         super(props);
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.state = {
-            //dataSource: ds
-            dataSource: ds.cloneWithRows([{text: 'row 1'}, {text: 'row 2'}]),
+            dataSource: ds
+            //dataSource: ds.cloneWithRows([{text: 'row 1'}, {text: 'row 2'}]),
         }
     }
 
     componentDidMount() {
-        //this.updateDataSource(this.props.comments)
+        this.updateDataSource(this.props.comments)
         //this.updateDataSource(['awesome!', 'Fine!', 'I Hate him', 'Whatever'])
         //this.updateDataSource([{text: 'awesome!'}, {text: 'Fine!'}])
-//this.updateDataSource({text: 'awesome!'})
+        //this.updateDataSource({text: 'awesome!'})
     }
 
     componentWillReceiveProps(newProps) {
         if (newProps.comments !== this.props.comments) {
-            //this.updateDataSource(newProps.comments);
+            this.updateDataSource(newProps.comments);
             //this.updateDataSource(['awesome!', 'Fine!', 'I Hate him', 'Whatever'])
         }
     }
@@ -50,7 +50,7 @@ export default class CommentList extends Component {
                 dataSource={this.state.dataSource}
                 renderRow={(comment) => {
                     return (
-                        <Comment text={comment.text} />
+                        <Comment text={comment.text} avatar={comment.userPhoto} />
                     )
                 }}
             />

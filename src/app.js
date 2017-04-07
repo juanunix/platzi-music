@@ -20,12 +20,11 @@ import ArtistDetailView from './ArtistDetailView'
 
 class PlatziMusic extends React.Component {
     render() {
-        const isAndroid = Platform.OS === 'android'
         return <Router>
             <Scene key="LoginView" component={LoginView} hideNavBar />
             <Scene key="root">
                 <Scene key="home" component={HomeView} hideNavBar />
-                <Scene key="artistDetail" component={ArtistDetailView} hideNavBar={isAndroid} />
+                <Scene key="artistDetail" component={ArtistDetailView} hideNavBar={false} title="Comentarios" />
             </Scene>
         </Router>
     }
