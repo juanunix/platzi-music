@@ -9,6 +9,7 @@ import {
     StyleSheet,
     View,
     Text,
+    Image,
     Button,
 } from 'react-native';
 
@@ -118,10 +119,11 @@ export default class HomeView extends Component {
         }
 
         return (
-            <View style={styles.container}>
+            <Image source={require('./background.jpg')} style={styles.container}>
                 <Text style={styles.welcome}>
                     Bienvenidos a Platzi Music
                 </Text>
+                <Image source={require('./logo.png')} style={styles.logo} />
                 <Text style={styles.welcome}>
                     {username}           
                 </Text>
@@ -130,7 +132,7 @@ export default class HomeView extends Component {
                     <Text style={{ fontFamily: 'Arial', color: 'white', fontSize: 15 }}>{googleSignText}</Text>
                 </Icon.Button>
 
-            </View>
+            </Image>
         );
     }
 }
@@ -138,6 +140,8 @@ export default class HomeView extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        width: null,
+        height: null,
         backgroundColor: 'lightgray',
         justifyContent: 'center',
         alignItems: 'center'
@@ -146,5 +150,12 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: '600',
         marginBottom: 20,
+        backgroundColor: 'transparent',
+        color: 'white',
+    },
+    logo: {
+        width: 120,
+        height: 120,
+        marginBottom: 15,
     }
 });
